@@ -1,0 +1,85 @@
+.toast-notifications {
+    position: fixed;
+    display: none;
+    top: 100px;
+    right: 30px;
+    z-index: 5;
+    width: 400px;
+    list-style: none;
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 20px;
+    justify-content: space-between;
+    border: #cccccc 2px solid;
+}
+.toast-notifications.show-toast {
+    display: flex;
+    animation: show_toast 0.7s ease forwards;
+}
+.toast-notifications.remove-toast {
+    animation: hide_toast 0.3s ease forwards;
+}
+@keyframes hide_toast {
+    0% {
+        transform: translateX(0%);
+    }
+    40% {
+        transform: translateX(0%);
+    }
+    80% {
+        transform: translateX(-5%);
+    }
+    100% {
+        transform: translateX(calc(100% + 20px));
+    }
+}
+@keyframes show_toast {
+    0% {
+        transform: translateX(100%);
+    }
+    40% {
+        transform: translateX(-5%);
+    }
+    80% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+}
+.toast-notifications::before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    animation: progress 5s linear forwards;
+}
+@keyframes progress {
+    100% {
+        width: 0%;
+    }
+}
+.toast.toast-info::before,
+.btn#toast-info {
+    background-color: #4c1864;
+}
+.toast-notifications i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #4c1864;
+}
+.toast-notifications.span {
+    font-size: 1.2rem;
+}
+.toast-notifications i:last-child {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #cccccc;
+    transition: all 0.2s ease-in-out;
+}
+.toast-notifications i:last-child:hover {
+    color: #16213e;
+}
